@@ -12,11 +12,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Deploy via SSH/SFTP
-        uses: easingthemes/ssh-deploy@main
+      - name: SFTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          SSH_PRIVATE_KEY: ${{ secrets.SFTP_KEY }}
-          REMOTE_HOST: ${{ secrets.SFTP_SERVER }}
-          REMOTE_USER: ${{ secrets.SFTP_USERNAME }}
-          REMOTE_PORT: "10398"
-          TARGET: "/html/wp-content/themes/xalink-theme/"
+          server: ${{ secrets.SFTP_SERVER }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          port: 10397
+          protocol: sftp
+          server-dir: /html/wp-content/themes/xalink-theme/
