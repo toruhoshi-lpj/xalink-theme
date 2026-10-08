@@ -15,9 +15,9 @@ jobs:
       - name: SFTP Deploy
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          host: ${{ secrets.SFTP_SERVER }}
+          server: ${{ secrets.SFTP_SERVER }}
           username: ${{ secrets.SFTP_USERNAME }}
           ssh_private_key: ${{ secrets.SFTP_KEY }}
           port: ${{ secrets.SFTP_PORT }}
-          # CPIの転送先ディレクトリ（末尾の / を忘れずに）
-          remote_dir: /html/wp-content/themes/xalink-theme/
+          # 転送先ディレクトリ（末尾の / を忘れずに）
+          remote_path: /html/wp-content/themes/xalink-theme/
