@@ -12,12 +12,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: SFTP Deploy
-        uses: garygrossgarten/github-action-sftp@0.5.0
-        with:
-          host: ${{ secrets.SFTP_SERVER }}
-          username: ${{ secrets.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          port: 10397
-          localDir: .
-          remoteDir: /html/wp-content/themes/xalink-theme/
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: SFTP Upload via lftp
+        run: |
+          lftp -f "
+          set sftp:auto-confirm yes
+          open -u ${{ secrets.SFTP_USERNAME }},${{ secrets.SFTP_PASSWORD }} -p 10397 sftp://${{ secrets.SFTP_SERVER }}
+          mirror --reverse --delete --verbose ./ /html/wp-content/themes/xalink-theme/
+          quit
+          "
