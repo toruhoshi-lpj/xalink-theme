@@ -13,12 +13,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: SFTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          server: ${{ secrets.SFTP_SERVER }}
+          host: ${{ secrets.SFTP_SERVER }}
           username: ${{ secrets.SFTP_USERNAME }}
-          sftp-ssh-key: ${{ secrets.SFTP_KEY }}
+          ssh_private_key: ${{ secrets.SFTP_KEY }}
           port: ${{ secrets.SFTP_PORT }}
-          protocol: sftp
-          # CPIの転送先ディレクトリ（実在するテーマフォルダ名に変更してください）
-          server-dir: /html/wp-content/themes/xalink-theme/
+          # CPIの転送先ディレクトリ（末尾の / を忘れずに）
+          remote_dir: /html/wp-content/themes/xalink-theme/
