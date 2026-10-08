@@ -12,12 +12,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: SFTP Deploy
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      - name: Deploy via SSH/SFTP
+        uses: easingthemes/ssh-deploy@main
         with:
-          server: ${{ secrets.SFTP_SERVER }}
-          username: ${{ secrets.SFTP_USERNAME }}
-          ssh_private_key: ${{ secrets.SFTP_KEY }}
-          port: 22
-          # 転送先ディレクトリ
-          remote_path: /html/wp-content/themes/xalink-theme/
+          SSH_PRIVATE_KEY: ${{ secrets.SFTP_KEY }}
+          REMOTE_HOST: ${{ secrets.SFTP_SERVER }}
+          REMOTE_USER: ${{ secrets.SFTP_USERNAME }}
+          PORT: 22
+          TARGET: /html/wp-content/themes/xalink-theme/
