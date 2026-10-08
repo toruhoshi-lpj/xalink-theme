@@ -13,10 +13,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: SFTP Deploy
-        uses: PressLabs/sftp-upload-action@v1
+        uses: garygrossgarten/github-action-sftp@0.5.0
         with:
           host: ${{ secrets.SFTP_SERVER }}
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
           port: 10397
+          localDir: .
           remoteDir: /html/wp-content/themes/xalink-theme/
