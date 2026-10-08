@@ -20,7 +20,7 @@ jobs:
           lftp -f "
           set sftp:auto-confirm yes
           open -u ${{ secrets.SFTP_USERNAME }},${{ secrets.SFTP_PASSWORD }} -p 10397 sftp://${{ secrets.SFTP_SERVER }}
-          mkdir -p html/wp-content/themes/xalink-theme
-          mirror --reverse --delete --verbose ./ html/wp-content/themes/xalink-theme/
+          mkdir -p html/xalink-jp/wp-content/themes/xalink-theme
+          mirror --reverse --delete --verbose ./ html/xalink-jp/wp-content/themes/xalink-theme/
           quit
           "
