@@ -1,0 +1,94 @@
+@charset "utf-8";
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+
+/*index: slickスライダーの共通設定*/
+@import "slick-theme";
+@import "slick";
+
+.slider {
+	display: none;
+	* {
+		box-sizing: border-box;
+		line-height: 0;
+	}
+	&.slick-slider {
+		display: block;
+	}
+	.slick-track {
+		.slick-slide {
+			a {
+				&:hover {
+					opacity: .8;
+				}
+			}
+			img {
+				width: 100%;
+				height: auto;
+				margin: auto;
+				vertical-align: middle;
+				display: block;
+			}
+		}
+	}
+	.slick-arrow{
+		z-index: 9;
+		width: 26px;
+		height: 39px;
+		margin: auto;
+		top: 0;
+		bottom: 0;
+		transform: none;
+		&:before {
+			content: '';
+			display: block;
+			width: 100%;
+			height: 100%;
+			background-image: url(../images/slider-arrow.svg);
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: center;
+			opacity: 1;
+		}
+		&:hover {
+			opacity: 0.8;
+		}
+		&.slick-prev {
+			left: 10px;
+			transform: rotate(180deg);
+			@include media(sp) {
+				left: 0;
+			}
+		}
+		&.slick-next {
+			right: 10px;
+			@include media(sp) {
+				right: 0;
+			}
+		}
+	}
+	.slick-dots {
+		bottom: 20px;
+		li {
+			width: 15px;
+			height: 15px;
+			button {
+				width: 15px;
+				height: 15px;
+				background: #fff;
+				border: 1px solid $vi-main-color;
+				border-radius: 50%;
+				&:before {
+					content: none;
+				}
+			}
+			&.slick-active {
+				button {
+					background: $vi-main-color;
+				}
+			}
+		}
+	}
+	&.slick-dotted {
+		margin-bottom: 0;
+	}
+}

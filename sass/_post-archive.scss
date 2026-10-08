@@ -1,0 +1,44 @@
+@charset "utf-8";
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: お知らせのアーカイブ*/
+#post-archive {
+	&-wrapper {
+	}
+	ul {
+		li {
+			border-bottom: 1px solid #c5c6c6;
+			a {
+				display: block;
+				margin-top: 1em;
+				padding-bottom: 1em;
+				text-decoration: none;
+				span {
+					vertical-align: middle;
+				}
+				.category {
+					background-color: #008d3a;
+					color: #fff;
+					font-size: (13/16)+em;
+					letter-spacing: .1em;
+					margin-right: .5em;
+					padding: 2px 8px 3px;
+				}
+				.meta {
+					margin-right: .5em;
+				}
+				.title {
+					@include media(sp){
+						margin: .5em 0 0;
+						display: block;
+						line-height: 1.5;
+					}
+				}
+			}
+			&:first-child {
+				a {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+}

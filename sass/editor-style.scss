@@ -1,0 +1,48 @@
+@charset "utf-8";
+/*
+WYSIWYGエディタ「 TinyMCE 」のエディタ画面のスタイルシート
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+INDEX
+
+#A001 外部ファイルの読み込み
+#A002 リセットCSS と サイトの初期設定
+#A003 WYSIWYGエディタ「 TinyMCE 」の設定
+
+┌─────────────────────────────
+│ #A001 外部ファイルの読み込み
+│ 
+*/
+@import "settings";
+@import "wysiwyg";
+/*
+┌─────────────────────────────
+│ #A002 リセットCSS と WYSIWYGエディタ「 TinyMCE 」の初期設定（文字と背景）
+│ 
+*/
+iflame#content_ifr{
+	html{
+		@include reset(html);
+	}
+}
+//body.mceContentBody {
+body{
+	&.editor-area{ // function.php で定義したClass名
+		@include reset(body);
+		@include reset(color);
+		@include reset(font);
+		@include reset();
+		@extend %clearfix;
+	}
+}
+/*
+┌─────────────────────────────
+│ #A003 WYSIWYGエディタ「 TinyMCE 」の設定
+│ 
+*/
+body{
+	&#tinymce{
+		&.editor-area{ // function.php で定義したClass名
+			@include wysiwyg;
+		}
+	}
+}

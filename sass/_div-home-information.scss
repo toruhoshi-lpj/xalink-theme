@@ -1,0 +1,88 @@
+@charset "utf-8";
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+
+/*index: ホームのお知らせ一覧*/
+#home-information {
+	overflow: hidden;
+	&-wrapper {
+	}
+	.container {
+		max-width: 770px;
+		margin: auto;
+	}
+	.section-title {
+		color: #008d3a;
+		font-size: (38/16)+em;
+		font-weight: 600;
+		margin-bottom: 1em;
+		text-align: left;
+	}
+	.btn-wrapper {
+		a {
+			border: 1px solid #008d3a;
+			box-sizing: border-box;
+			display: block;
+			max-width: 260px;
+			margin: 3em auto 1em;
+			padding: 1em;
+			text-align: center;
+			text-decoration: none;
+			position: relative;
+			&:after {
+				content: "";
+				position: absolute;
+				top: 0;
+				right: -30px;
+				bottom: 0;
+				margin: auto;
+				width: 50px;
+				height: 7px;
+				background: url(../images/arrow-right.svg) no-repeat center/cover;
+				@include media(sp){
+					right: -20px;
+				}
+			}
+			&:hover {
+				color: #fff;
+				background-color: #008d3a;
+			}
+		}
+	}
+	ul {
+		li {
+			border-bottom: 1px solid #c5c6c6;
+			a {
+				display: block;
+				margin-top: 1em;
+				padding-bottom: 1em;
+				text-decoration: none;
+				span {
+					vertical-align: middle;
+				}
+				.category {
+					background-color: #008d3a;
+					color: #fff;
+					font-size: (13/16)+em;
+					letter-spacing: .1em;
+					margin-right: .5em;
+					padding: 2px 8px 3px;
+				}
+				.meta {
+					margin-right: .5em;
+				}
+				.title {
+					@include media(sp){
+						margin: .5em 0 0;
+						display: block;
+						line-height: 1.5;
+					}
+				}
+			}
+			&:first-child {
+				a {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+}

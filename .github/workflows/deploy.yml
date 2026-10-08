@@ -1,0 +1,24 @@
+name: Deploy Theme to CPI Test Server
+
+on:
+  push:
+    branches:
+      - main # または master など、GitHubのメインブランチ名に合わせてください
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: SFTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.SFTP_SERVER }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          ssh-key: ${{ secrets.SFTP_KEY }}
+          port: ${{ secrets.SFTP_PORT }}
+          protocol: sftp
+          # CPIの転送先ディレクトリ（※サブフォルダ等にインストールした場合は適宜変更してください）
+          server-dir: /html/wp-content/themes/xalink-theme/

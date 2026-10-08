@@ -1,0 +1,83 @@
+@charset "utf-8";
+/*note: INDEXの表示は、コメントの「 index: 」でハイライト表示してください。*/
+
+#consultaion {
+	&-wrapper {
+		overflow: hidden;
+		margin-bottom: 6.4rem;
+		padding-top: 4.8rem;
+		@include media(sp){
+			margin-bottom: 3.2rem;
+			padding-top: 2.4rem;
+		}
+	}
+	img {
+		width: 100%;
+		height: auto;
+	}
+	.container {
+		max-width: 900px;
+	}
+	.lead {
+		font-size: (18/16)+em;
+		line-height: 2;
+		text-align: center;
+		@include media(sp){
+			font-size: (15/16)+em;
+		}
+	}
+	.box {
+		background: rgba(255, 237, 0, 0.2);
+		border-radius: 20px;
+		box-sizing: border-box;
+		margin-top: 5em;
+		padding: 5% 8%;
+		@include media(sp){
+			border-radius: 10px;
+			margin-top: 3em;
+			padding: 5%;
+		}
+		.contact {
+			background: #fff;
+			border: 3px solid $vi-main-color;
+			margin: 3em auto 0;
+			padding: 5%;
+			text-align: center;
+			width: 90%;
+			@include media(sp){
+				border-width: 2px;
+				margin: 1.5em auto 0;
+				width: 100%;
+			}
+			.text {
+				font-size: (20/16)+em;
+				@include media(sp){
+					font-size: (15/16)+em;
+					margin-bottom: .25em;
+				}
+			}
+			.tel {
+				font-size: (45/16)+em;
+				font-weight: 500;
+				@include media(sp){
+					font-size: (25/16)+em;
+				}
+				a {
+					text-decoration: none;
+				}
+				span {
+					font-size: 70%;
+				}
+			}
+			.address {
+				color: $vi-main-color;
+				display: block;
+				font-size: (20/16)+em;
+				margin-top: .25em;
+				@include media(sp){
+					font-size: (16/16)+em;
+				}
+			}
+		}
+	}
+}

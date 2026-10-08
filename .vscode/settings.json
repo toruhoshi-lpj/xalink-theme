@@ -1,0 +1,31 @@
+{
+  "liveSassCompile.settings.forceBaseDirectory": "/sass",
+  "liveSassCompile.settings.includeItems": [
+    "/style.scss",
+    "/editor-style.scss"
+  ],
+  "liveSassCompile.settings.excludeList": [
+    "/node_modules/**",
+    "/.vscode/**"
+  ],
+  "liveSassCompile.settings.partialsList": [
+    "/**/_*.scss",
+    "/**/_*.sass"
+  ],
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "~/../css"
+    },
+    {
+      "format": "compressed",
+      "extensionName": ".min.css",
+      "savePath": "~/../css",
+      "generateMap": false
+    }
+  ],
+  "liveSassCompile.settings.generateMap": false,
+  "liveSassCompile.settings.compileOnWatch": true,
+  "liveSassCompile.settings.showOutputWindowOn": "Information"
+}

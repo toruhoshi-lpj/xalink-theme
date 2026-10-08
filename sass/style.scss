@@ -1,0 +1,750 @@
+@charset "utf-8";
+/*note: INDEXの表示は、コメントの「 index: 」でハイライト表示してください。*/
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: 外部ファイルの読み込み */
+@import "settings";
+@import "wysiwyg";
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: リセットCSS と サイトの初期設定 */
+html{
+	@include reset(html);
+	font-size: 62.5%; // 1rem = 10px
+	@extend %clearfix;
+	* {
+		box-sizing: border-box;
+	}
+}
+body{
+	@include reset(body);
+	@include reset(color);
+	@include reset(font);
+	@extend %clearfix;
+	@include media(tb) {
+		font-size: (14/15) * 16px;
+	}
+	@include media(sp) {
+		font-size: (12/15) * 16px;
+	}
+}
+@include reset();
+
+.sans-serif{
+	font-family: 游明朝,"Yu Mincho",YuMincho,"Hiragino Mincho ProN","Hiragino Mincho Pro",HGS明朝E,メイリオ,Meiryo,serif;
+}
+.en-font {
+	font-family: 'Oswald', sans-serif;
+}
+
+small {
+	font-size: 0.8em;
+}
+
+img {
+	max-width: 100%;
+	width: auto;
+	height: auto;
+	vertical-align: middle;
+}
+
+dl {
+	margin-bottom: 1.6rem;
+}
+dt {
+	color: $vi-color-01;
+}
+dd {
+
+}
+
+.nosp {
+	@include media(sp) {
+		display: none !important;
+	}
+}
+
+.nopc {
+	display: none !important;
+	@include media(sp) {
+		display: block !important;
+	}
+}
+
+.flex-box {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+}
+
+#contents {
+	overflow: hidden;
+	clear: both;
+}
+
+
+.container {
+	max-width: 1024px;
+	width: 90%;
+	margin: 0 auto;
+	padding: 6.4rem 0;
+	@include media(sp) {
+		padding: 3.2rem 0;
+	}
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.red {
+	color: #ff0000;
+}
+
+a {
+	transition: all 0.2s ease-in-out;
+	text-decoration: none !important;
+}
+
+li {
+	line-height: 1.5;
+}
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: サイドバーありスタイル */
+#main {
+	&-wrapper {
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		@include media(tb) {
+			display: block;
+		}
+	}
+	width: calc(100% - 250px);
+	@include media(tb) {
+		width: 100%;
+	}
+}
+
+#sidebar {
+	&-wrapper {
+		width: 250px;
+		@include media(tb) {
+			width: 100%;
+		}
+	}
+
+}
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: WYSIWYGエディタ「 TinyMCE 」の記事の表示設定 */
+.wysiwyg,
+#tinymce{
+	@include wysiwyg;
+	overflow: hidden;
+	margin-top: 1em;
+	footer {
+		margin-top: 2em;
+		clear: both;
+	}
+	table {
+		word-break: break-all;
+	}
+	.entry-header {
+		border-bottom: 1px solid $vi-main-color;
+		margin-bottom: 1em;
+		.meta {
+			font-size: (16/16)+em;
+			margin: 0;
+			width: 100%;
+			box-sizing: border-box;
+			padding: .5em 0;
+			.category {
+				color: #fff;
+				display: inline-block;
+				font-size: (14/16)+em;
+				margin-left: 1em;
+				padding: 2px 10px;
+				vertical-align: middle;
+				&.category-01 {
+					background: $vi-main-color;
+				}
+			}
+			@include media(sp) {
+				font-size: (14/16)+em;
+				.category {
+					font-size: (13/16)+em;
+				}
+			}
+		}
+		h1 {
+			font-size: (20/16)+em;
+			font-weight: bold;
+			margin-bottom: 0;
+			@include media(sp) {
+				font-size: (18/16)+em;
+			}
+		}
+	}
+	.back-button-wrapper {
+		a {
+			border: 1px solid #008d3a;
+			box-sizing: border-box;
+			display: block;
+			max-width: 260px;
+			margin: 3em auto 1em;
+			padding: 1em;
+			text-align: center;
+			text-decoration: none;
+			position: relative;
+			@include media(sp){
+				max-width: 240px;
+			}
+			&:after {
+				content: "";
+				position: absolute;
+				top: 0;
+				right: -30px;
+				bottom: 0;
+				margin: auto;
+				width: 50px;
+				height: 7px;
+				background: url(../images/arrow-right.svg) no-repeat center/cover;
+				@include media(sp){
+					right: -20px;
+				}
+			}
+			&:hover {
+				color: #fff;
+				background-color: #008d3a;
+			}
+		}
+	}
+	.alignleft {
+		display: inline;
+		float: left;
+		margin-right: 1.5em;
+		margin-bottom: 0.5em;
+		@include media(sp) {
+			float: none;
+			margin-right: 0;
+			margin-bottom: 3vw;
+			width: 100%;
+		}
+	}
+	.alignright {
+		display: inline;
+		float: right;
+		margin-left: 1.5em;
+		margin-bottom: 0.5em;
+		@include media(sp) {
+			float: none;
+			margin-left: 0;
+			margin-bottom: 3vw;
+			width: 100%;
+		}
+	}
+	.aligncenter {
+		clear: both;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		@include media(sp) {
+			width: 100%;
+		}
+	}
+	h1 {
+		font-size: 2em;
+	}
+	h2 {
+		font-size: 1.3em;
+		font-weight: bold;
+		padding-left: 1.6rem;
+		position: relative;
+		margin-bottom: 2.08rem;
+		@include media(sp) {
+			font-size: 1em;
+			padding-left: 1.6rem;
+		}
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			margin: auto;
+			width: 5px;
+			background-color: $vi-main-color;
+			@include media(sp) {
+				width: 4px;
+				// margin-bottom: 8px;
+			}
+		}
+	}
+	h3 {
+		background: rgba($vi-main-color,0.1);
+		font-size: 1.2em;
+		font-weight: bold;
+		margin-bottom: 2.08rem;
+		padding: 10px;
+		@include media(sp){
+			font-size: 1em;
+		}
+	}
+	h4 {
+		font-size: 1.15em;
+		font-weight: bold;
+		margin-bottom: 2.08rem;
+	}
+	h5 {
+		font-size: 1em;
+		font-weight: bold;
+		margin-bottom: 2.08rem;
+	}
+	h6 {
+		font-size: 1em;
+		font-weight: bold;
+		margin-bottom: 2.08rem;
+	}
+	p {
+		line-height: 2;
+		margin-bottom: 2.08rem;
+	}
+}
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: ボタンのスタイル */
+@import "div-button";
+
+.button {
+	@extend %button-style;
+}
+
+.more {
+	text-align: center;
+	a {
+		@extend %button-style;
+	}
+}
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: アイコンスタイル */
+
+%icon-style {
+	display: inline-block;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	vertical-align: middle;
+}
+
+.icon-mail {
+	@extend %icon-style;
+	background-image: url(../images/icon_03.svg);
+	width: 18px;
+	height: 14px;
+	vertical-align: -2px;
+}
+
+.icon-signup {
+	@extend %icon-style;
+	background-image: url(../images/icon_02.svg);
+	width: 40px;
+	height: 40px;
+}
+
+.icon-login {
+	@extend %icon-style;
+	background-image: url(../images/icon_01.svg);
+	width: 40px;
+	height: 40px;
+}
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: セクションタイトル */
+.section-title {
+	background: none !important;
+	font-size: 30px !important;
+	font-weight: bold;
+	display: block;
+	line-height: 2;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	@include media(sp){
+		font-size: 22px !important;
+	}
+	.en {
+		font-size: 14px;
+		display: block;
+		padding-bottom: 1px;
+	}
+	.ja {
+		border-top: 2px solid $vi-main-color;
+		padding: 10px 10px 0;
+		@include media(sp){
+			padding: 8px 10px 0;
+			display: inline-block;
+			line-height: 1.25;
+		}
+	}
+}
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: テーブルスタイル */
+%table {
+	border-collapse: collapse;
+	width: 100%;
+	tr {
+		&:first-child {
+		}
+		&:hover {
+		}
+	}
+	th,td {
+		vertical-align: middle;
+		padding: 10px;
+		@include media(sp) {
+			padding: 5px;
+			font-size: (12/15)+em;
+		}
+	}
+	th {
+		background-color: #f4f6f1;
+		border: 1px solid #231815;
+		font-weight: bold;
+		white-space: nowrap;
+		@include media(sp) {
+		}
+	}
+	td {
+		border-bottom: 1px dashed #000;
+		border-left: 1px solid #fff;
+		border-right: 1px solid #fff;
+		border: 1px solid #231815;
+		@include media(sp) {
+		}
+	}
+}
+
+table {
+	@extend %table;
+}
+
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: 背景スタイル */
+%background {
+	background-color: #f8faf2;
+}
+
+.background {
+	@extend %background !optional;
+}
+
+.background-right {
+	@extend %background;
+	&:after {
+		background-image: url(../images/background-02.png);
+		background-repeat: no-repeat;
+		background-position: right top;
+		background-size: 100% 100%;
+	}
+}
+
+.background-gray {
+	background: #666;
+}
+
+.background-section {
+	background-color: $vi-background-section;
+}
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: 番号ありリスト */
+%list-number {
+	list-style: decimal;
+	ul,
+	ol{
+		width: auto;
+		margin-bottom: 0;
+	}
+	li {
+		margin-left: 2em;
+	}
+}
+
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: 番号ありリスト */
+%list-disc {
+	list-style: disc;
+	ul,
+	ol{
+		width: auto;
+		margin-bottom: 0;
+	}
+	li {
+		margin-left: 2em;
+	}
+}
+.disc-list {
+	@extend %list-disc !optional;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-wrap: wrap;
+	li {
+		width: calc(33.333% - 2em);
+		line-height: 2;
+		@include media(sp) {
+			width: calc(100% - 2em);
+		}
+	}
+}
+
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: 投稿がない場合 */
+.no-post {
+	border-top: 1px solid #c5c6c6;
+	border-bottom: 1px solid #c5c6c6;
+	font-size: (18/16)+em;
+	font-weight: bold;
+	margin-bottom: 2em;
+	padding: .5em 0;
+	text-align: center;
+	width: 100%;
+	@include media(sp) {
+		font-size: (16/16)+em;
+		margin-bottom: 0;
+	}
+}
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: parts用の外部ファイル読み込み */
+@import "div-site-header";
+@import "div-header-breadcrumb";
+@import "div-site-sidebar";
+@import "div-site-footer";
+@import "content-pagination";
+@import "div-page-title";
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: フロントページ用の外部ファイル読み込み */
+@import "div-hero";
+@import "home";
+@import "div-home-information";
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: jsライブラリ専用外部ファイル読み込み */
+@import "slick-settings";
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: 固定ページ専用外部ファイル読み込み */
+@import "page-outline";
+@import "page-member";
+@import "page-activity";
+@import "page-consultaion";
+@import "page-admisson";
+@import "page-contact";
+@import "page-compliance";
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: アーカイブページ専用外部ファイル読み込み */
+@import "post-archive";
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: 投稿ページ専用外部ファイル読み込み */
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: サイトマップ */
+.sitemap {
+	.wysiwyg {
+		h2 {
+			font-size: 1em;
+		}
+	}
+	.sitemap-list {
+		>.page_item {
+			list-style: none;
+			margin-left: 0;
+			> a {
+				background-color: #fff;
+				border-left: 5px solid $vi-main-color;
+				display: block;
+				font-size: 1em;
+				font-weight: bold;
+				position: relative;
+				padding: 0 1.6rem;
+				margin: 1.6rem 0;
+			}
+			> .children {
+				border-bottom: 1px dashed #000;
+				display: inline;
+				>.page_item {
+					list-style: none;
+					> a {
+						background-color: $vi-color-03;
+						padding: 5px 10px;
+					}
+				}
+				a {
+					color: #000;
+					display: block;
+					margin-bottom: 1.6rem;
+					&:hover {
+						color: $vi-main-color;
+					}
+				}
+				> .page_item_has_children {
+					.children {
+						display: inline;
+						li {
+							display: inline;
+							margin: 0;
+							padding: 0;
+						}
+						a {
+							display: inline-block;
+							width: 49%;
+							vertical-align: top;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: 検索ボックス */
+#search {
+	position: absolute;
+	top: 78px;
+	width: 100%;
+	text-align: center;
+	z-index: -1;
+	transition: opacity .25s, visibility 0s ease .25s;
+	opacity: 0;
+	visibility: hidden;
+	padding: 0;
+	background-color: rgba($vi-color-02,1.0);
+	@include media(sp) {
+		top: 58px;
+	}
+	&.open {
+		transition-delay: 0s;
+		opacity: 1;
+		visibility: visible;
+		z-index: 99;
+	}
+	.search-form {
+		max-width: 1000px;
+		width: 90%;
+		margin: auto;
+	}
+}
+.search-form {
+	padding: 1.5em 0;
+	position: relative;
+	@include media(sp) {
+		padding: 1em 0;
+	}
+	.search-submit {
+		background-color: #000;
+		color: #fff;
+		position: absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		width: 60px;
+		height: 37px;
+		margin: auto;
+		border: none;
+		&:hover {
+			opacity: .8;
+		}
+	}
+}
+.search-field {
+	border: none;
+	background-color: #ddd;
+	border-radius: 0;
+	background-image: url(../images/icon-search.svg);
+	background-size: 16px 16px;
+	background-position: 10px center;
+	background-repeat: no-repeat;
+	font-size: 1em;
+	text-indent: 2em;
+	display: block;
+	width: 100%;
+	padding: 10px;
+	padding-right: 80px;
+	@include media(sp) {
+		width: 95%;
+	}
+	&:focus {
+		background-image: url(../images/icon-search.svg);
+		background-size: 16px 16px;
+		background-position: 10px center;
+		background-repeat: no-repeat;
+		padding-right: 10px;
+	}
+	#contents & {
+		margin: 0;
+	}
+}
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: 個人情報保護方針 */
+#privacy {
+	.container {
+		max-width: 900px;
+	}
+	.wysiwyg {
+		margin: 0 auto;
+		width: 100%;
+		h2 {
+			margin-top: 4.8rem;
+			margin-bottom: 1.6rem;
+			@include media(sp) {
+				font-size: 1.15em;
+				margin-top: 3.2rem;
+				margin-bottom: .8rem;
+			}
+		}
+		h3 {
+			background: rgba($vi-main-color,0.1);
+			font-size: 1.6rem;
+			margin-top: 3.2rem;
+			margin-bottom: .8rem;
+			@include media(sp) {
+				font-size: .9em;
+				margin-top: 1.6rem;
+				margin-bottom: .4rem;
+			}
+		}
+		p {
+			font-size: .9em;
+		}
+		a {
+			color: $vi-main-color;
+			word-break: break-all;
+		}
+	}
+}

@@ -1,0 +1,313 @@
+@charset "utf-8";
+/*
+WYSIWYGエディタに関わる部分の設定し、ステークホルダーにてサイトの随所で再利用します。
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+NOTE
+
+・ リセットCSS適用後に再設定するための定義です。
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+INDEX
+
+#01 要素の基本定義
+
+	#01-01 Colors
+		font-color
+		background-color
+		background-image
+		border-color（ top, right, bottom, left ）
+
+	#01-02 font-family
+		font-family
+		@include (WebFontの読み込み)
+		
+	#01-03 border-style
+		border-style
+
+	#01-04 Fonts ( font-color font-family 以外を定義 ) 
+		font
+		line-height
+		…
+		
+	#01-03 Box Model (梱包される親の横幅を100％使った時の定義)
+		margin
+		border-size
+		padding
+		…
+
+	#01-05 layout
+		display
+		width
+		height
+		float
+		…
+
+#02 WYSIWYG部分の設定
+
+/*
+┌─────────────────────────────
+│ #01 要素の基本定義
+│ 
+*/
+//┌────────────────────────────
+//│ 汎用要素
+//│ 
+%margin-x{
+	margin-left: auto;
+	margin-right: auto;
+}
+%margin-bottom{
+	margin-bottom: 32px;
+	@include media(sp) {
+		margin-bottom: 3vw;
+	}
+}
+%div{
+
+}
+%span{
+	display: inline;
+}
+//┌────────────────────────────
+//│ 見出し
+//│ 
+%h1{
+	@extend %margin-x;
+	@extend %margin-bottom;
+	font-size: 2.5em;
+}
+%h2{
+	@extend %margin-x;
+	@extend %margin-bottom;
+	font-size: 2em;
+}
+%h3{
+	@extend %margin-x;
+	@extend %margin-bottom;
+	font-size: 1.75em;
+}
+%h4{
+	@extend %margin-x;
+	@extend %margin-bottom;
+	font-size: 1.5em;
+}
+%h5{
+	@extend %margin-x;
+	@extend %margin-bottom;
+	font-size: 1.25em;
+}
+%h6{
+	@extend %margin-x;
+	@extend %margin-bottom;
+	font-size: 1em;
+}
+//┌────────────────────────────
+//│ テキスト
+//│ 
+%p{
+	@extend %margin-x;
+	@extend %margin-bottom;
+}
+%pre{
+}
+%code{
+}
+%cite{
+}
+%q{
+}
+%blockquote{
+}
+%a{
+	&:hover{
+	}
+	&:visited{
+	}
+	&:active{
+	}
+}
+%strong{
+	font-weight: bold;
+}
+%em{
+}
+%big{
+}
+%small{
+}
+%dfn{
+}
+%sup{
+}
+%sub{
+}
+%acronym{
+}
+%abbr{
+}
+%kbd{
+}
+//┌────────────────────────────
+//│ 画像
+//│ 
+%img{
+	max-width: 100%;
+}
+//┌────────────────────────────
+//│ 順番あり・順番なしリスト
+//│ 
+%ul{
+	@extend %margin-x;
+	@extend %margin-bottom;
+	list-style: disc;
+	ul,
+	ol{
+		width: auto;
+		margin-bottom: 0;
+	}
+}
+%ol{
+	@extend %margin-x;
+	@extend %margin-bottom;
+	list-style: decimal;
+	ul,
+	ol{
+		width: auto;
+		margin-bottom: 0;
+	}
+}
+%li{
+	margin-left: 1.5em;
+}
+//┌────────────────────────────
+//│ 定義リスト
+//│ 
+%dl{
+	@extend %margin-x;
+	@extend %margin-bottom;
+}
+%dt{
+}
+%dd{
+}
+//┌────────────────────────────
+//│ テーブル
+//│ 
+%table{
+	@extend %margin-x;
+	@extend %margin-bottom;
+}
+%caption{
+}
+%thead{
+}
+%tbody{
+}
+%tfoot{
+}
+%tr{
+}
+%th{
+}
+%td{
+}
+//┌────────────────────────────
+//│ フォーム
+//│ 
+%fieldset{
+}
+%regend{
+}
+%form{
+}
+%label{
+}
+%input{
+}
+%select{
+}
+%textarea{
+}
+%option{
+}
+%button{
+}
+/*
+┌─────────────────────────────
+│ #02 WYSIWYG部分の設定
+│ 
+*/
+@mixin wysiwyg{
+//┌────────────────────────────
+//│ 汎用要素
+//│ 
+	div			{ @extend %div			!optional; } // 汎用（ブロックレベル）
+	span		{ @extend %span			!optional; } // 汎用（インライン）
+//┌────────────────────────────
+//│ 見出し
+//│ 
+	h1 			{ @extend %h1			!optional; } // 見出し1
+	h2 			{ @extend %h2			!optional; } // 見出し2
+	h3 			{ @extend %h3			!optional; } // 見出し3
+	h4 			{ @extend %h4			!optional; } // 見出し4
+	h5 			{ @extend %h5			!optional; } // 見出し5
+	h6 			{ @extend %h6			!optional; } // 見出し6
+//┌────────────────────────────
+//│ テキスト
+//│ 
+	p 			{ @extend %p			!optional; } // 段落
+	pre 		{ @extend %pre			!optional; } // 整形済みテキスト
+	code 		{ @extend %code			!optional; } // ソースコード
+	cite 		{ @extend %cite			!optional; } // 出典・引用元
+	q 			{ @extend %q			!optional; } //	引用
+	blockquote 	{ @extend %blockquote	!optional; } // 引用文
+	a 			{ @extend %a			!optional; } // アンカー
+	strong		{ @extend %strong		!optional; } // 強い強調
+	em 			{ @extend %em			!optional; } // 強調
+	big 		{ @extend %big			!optional; } // テキストを大きくする
+	small		{ @extend %small		!optional; } // テキストを小さくする
+	dfn			{ @extend %dfn			!optional; } // 定義語
+	sup 		{ @extend %sup			!optional; } // 上付き文字
+	sub 		{ @extend %sub			!optional; } // 下付き文字
+	acronym 	{ @extend %acronym		!optional; } // 複数ある単語の略語
+	abbr		{ @extend %abbr			!optional; } // 単語の略語
+	kbd			{ @extend %kbd			!optional; } // キーボード入力
+//┌────────────────────────────
+//│ 画像
+//│ 
+	img 		{ @extend %img			!optional; } // 画像
+//┌────────────────────────────
+//│ 順番あり・順番なしリスト
+//│ 
+	ul 			{ @extend %ul			!optional; } // 順番なしリスト
+	ol 			{ @extend %ol			!optional; } // 順番ありリスト
+	li 			{ @extend %li			!optional; } // リスト要素
+//┌────────────────────────────
+//│ 定義リスト
+//│ 
+	dl 			{ @extend %dl			!optional; } // 定義リスト
+	dt 			{ @extend %dt			!optional; } // 定義語
+	dd 			{ @extend %dd			!optional; } // 定義語の意味
+//┌────────────────────────────
+//│ テーブル
+//│ 
+	table 		{ @extend %table 		!optional; } // テーブル
+	caption 	{ @extend %caption		!optional; } // キャプション
+	thead 		{ @extend %thead 		!optional; } // テーブルのヘッダ
+	tbody 		{ @extend %tbody 		!optional; } // テーブルのボディ
+	tfoot 		{ @extend %tfoot 		!optional; } // テーブルのフッタ
+	tr			{ @extend %tr			!optional; } // テーブル行
+	th			{ @extend %th			!optional; } // 見出しセル
+	td			{ @extend %td			!optional; } // セル
+//┌────────────────────────────
+//│ フォーム
+//│ 
+	fieldset	{ @extend %fieldset		!optional; } // フィールド
+	form		{ @extend %form			!optional; } // フォーム
+	label		{ @extend %label		!optional; } // ラベル
+	input		{ @extend %input		!optional; } // インプット
+	select		{ @extend %select		!optional; } // セレクト
+	textarea	{ @extend %textarea		!optional; } // テキストエリア
+	option		{ @extend %option		!optional; } // オプション
+	button		{ @extend %button		!optional; } // ボタン
+} // @mixin wysiwyg

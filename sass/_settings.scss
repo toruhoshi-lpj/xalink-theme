@@ -1,0 +1,274 @@
+@charset "utf-8";
+/*note: INDEXの表示は、コメントの「 index: 」でハイライト表示してください。*/
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: 外部フォントCSSファイルの読み込み*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: リセットCSS と body要素の文字（色・書体）と背景色*/
+
+/* Body要素の背景色 */
+$vi-background-color	: #fff;
+
+/* Body要素の文字色 */
+$vi-font-color		: #000;
+$vi-font-a			: #000000;
+$vi-font-a-hover	: #000000;
+$vi-font-a-active	: #000000;
+$vi-font-a-visited	: #000000;
+//index: 色定義
+$vi-main-color			: #008d3a; // メインカラー
+$vi-background-section		: #f4f6f0; // セクション背景色
+$vi-color-gray			: #cccccc; // テーブル背景色のグレー
+$vi-color-gray-light	: #dddddd; // テーブル背景色のライトグレー
+$vi-color-01	: #000000; // アクセントカラー
+$vi-color-02	: #9dc814; // アクセントカラー
+$vi-color-03	: #f4f6f1; // アクセントカラー
+$vi-color-04	: #54575a; // アクセントカラー
+$vi-border	: #000000; // ボーダーカラー
+/* Body要素の書体 */
+$vi-font-family: 'Noto Sans JP',YuGothic, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+$vi-font-size		: 16px;
+$vi-font-weight		: 400;
+$vi-letter-spacing	: 0.05em;
+$vi-line-height		: 1.5;
+
+/* リセット用のプレイスフォルダ */
+%vi-reset-element{
+	border: 0;
+	font-family: inherit;
+	font-size: 100%;
+	font-weight: inherit;
+	font-style: inherit;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+%vi-reset-element-body{
+	line-height: 1;
+}
+%vi-reset-text-size-adjust{
+	text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+%vi-reset-color{
+	background-color: $vi-background-color;
+	color: $vi-font-color;
+	a{
+		color: $vi-font-a;
+		// &:hover{
+		// 	color: $vi-font-a-hover;
+		// }
+		// &:active{
+		// 	color: $vi-font-a-active;
+		// }
+		// &:visited{
+		// 	color: $vi-font-a-visited;
+		// }
+	}
+}
+%vi-reset-font{
+	font-family: $vi-font-family;
+	font-size: $vi-font-size;
+	font-weight: $vi-font-weight;
+	letter-spacing: $vi-letter-spacing;
+	line-height: $vi-line-height;
+}
+/* リセット処理関数 */
+@mixin reset($vi-reset: "element") {
+	@if $vi-reset == "html" {
+		@extend %vi-reset-element;
+		@extend %vi-reset-text-size-adjust;
+	}@else if $vi-reset == "body" {
+		@extend %vi-reset-element;
+		@extend %vi-reset-element-body;
+		@extend %vi-reset-text-size-adjust;
+	}@else if $vi-reset == "color" {
+		@extend %vi-reset-color;
+	}@else if $vi-reset == "font" {
+		@extend %vi-reset-font;
+	}@else if $vi-reset == "element" {
+		div,
+		span,
+		applet,
+		object,
+		iframe,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		p,
+		blockquote,
+		pre,
+		a,
+		abbr,
+		acronym,
+		address,
+		big,
+		cite,
+		code,
+		del,
+		dfn,
+		em,
+		font,
+		ins,
+		kbd,
+		q,
+		s,
+		samp,
+		small,
+		strike,
+		strong,
+		sub,
+		sup,
+		tt,
+		var,
+		dl,
+		dt,
+		dd,
+		ol,
+		ul,
+		li,
+		fieldset,
+		form,
+		label,
+		legend,
+		table,
+		caption,
+		tbody,
+		tfoot,
+		thead,
+		tr,
+		th,
+		td{
+			@extend %vi-reset-element;
+		}
+		:focus{
+			outline: 0;
+		}
+		ol,
+		ul{
+			list-style: none;
+		}
+		table{
+			border-collapse: separate;
+			border-spacing: 0;
+		}
+		caption,
+		th,
+		td{
+			font-weight: normal;
+			text-align: left;
+		}
+		blockquote:before,
+		blockquote:after,
+		q:before,
+		q:after{
+			content: "";
+		}
+		blockquote,
+		q{
+			quotes: "" "";
+		}
+		a img{
+			border: 0;
+		}
+		article,
+		aside,
+		details,
+		figcaption,
+		figure,
+		footer,
+		header,
+		hgroup,
+		menu,
+		nav,
+		section{
+			display: block;
+		}
+	}
+}
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: メディアクエリー*/
+
+/* 切り替えポイントの設定 */
+$vi-max-width-sp	: 640px;
+$vi-max-width-tb	: 1020px;
+
+/* 処理 */
+@mixin media($vi-media: "none") {
+	@if $vi-media == sp {
+		@media only screen and (max-width: $vi-max-width-sp) {
+			@content;
+		}
+	}
+	@else if $vi-media == sp-portrait {
+		@media only screen and (max-width: $vi-max-width-sp) and (orientation:portrait) {
+			@content;
+		}
+	}
+	@else if $vi-media == sp-landscape {
+		@media only screen and (max-width: $vi-max-width-sp) and (orientation:landscape) {
+			@content;
+		}
+	}
+	@else if $vi-media == tb {
+		@media only screen and (max-width: $vi-max-width-tb) {
+			@content;
+		}
+	}
+	@else if $vi-media == tb-portrait {
+		@media only screen and (max-width: $vi-max-width-tb) and (orientation:portrait) {
+			@content;
+		}
+	}
+	@else if $vi-media == tb-landscape {
+		@media only screen and (max-width: $vi-max-width-tb) and (orientation:landscape) {
+			@content;
+		}
+	}
+	@else if $vi-media == none {
+		@content;
+	}
+}
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: クリアフィックス*/
+
+/* Class と ステークホルダー の名称設定 */
+$vi-clearfix	: "clearfix";
+
+/* 処理 */
+@if $vi-clearfix {
+	%#{$vi-clearfix} {
+		&:after {
+			content:"";
+			display:block;
+			clear:both;
+		}
+	}
+	.#{$vi-clearfix}{
+		@extend %#{$vi-clearfix};
+	}
+}
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: スクリーンリーダー*/
+
+/* スクリーンリーダーテキスト の名称設定 */
+$vi-screen-reader-text	: "screen-reader-text";
+
+/* 処理 */
+@if $vi-screen-reader-text {
+	%#{$vi-screen-reader-text} {
+		clip: rect(1px, 1px, 1px, 1px);
+		position: absolute;
+	}
+	.#{$vi-screen-reader-text} {
+		@extend %#{$vi-screen-reader-text};
+	}
+}

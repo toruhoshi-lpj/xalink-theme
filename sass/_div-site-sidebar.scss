@@ -1,0 +1,43 @@
+@charset "utf-8";
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*index: サイドバー */
+#sidebar {
+	box-sizing: border-box;
+	margin-left: 1.8em;
+	padding-top: 1em;
+	@include media(tb) {
+		margin-top: 3em;
+		margin-left: 0;
+		padding-top: 0;
+	}
+	h3 {
+		border-bottom: 2px solid $vi-color-01;
+		font-weight: bold;
+		padding-bottom: .2em;
+		margin-bottom: .4em;
+	}
+	ul {
+		margin-bottom: .8em;
+		li {
+			a {
+				color: $vi-font-color;
+				display: inline-block;
+				font-size: 0.9375em;
+				padding: .4em .2em .4em .8em;
+				text-decoration: none;
+				&:hover {
+					text-decoration: underline;
+				}
+				@extend %button-arrow;
+				&:before {
+					border: 6px solid transparent;
+					border-left: 6px solid $vi-color-01;
+					left: 0;
+				}
+				&:after {
+					display: none;
+				}
+			}
+		}
+	}
+}

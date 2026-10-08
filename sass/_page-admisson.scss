@@ -1,0 +1,93 @@
+@charset "utf-8";
+/*note: INDEXの表示は、コメントの「 index: 」でハイライト表示してください。*/
+
+#admisson {
+	&-wrapper {
+		background: rgba(197, 198, 198, 0.2);
+		overflow: hidden;
+		padding: 4.8rem 0 8rem;
+		@include media(sp){
+			padding: 2.4rem 0 4.8rem;
+		}
+	}
+	img {
+		width: 100%;
+		height: auto;
+	}
+	.container {
+		max-width: 900px;
+	}
+	.lead {
+		font-size: (18/16)+em;
+		line-height: 2;
+		text-align: center;
+		@include media(sp){
+			font-size: (15/16)+em;
+		}
+	}
+	.box {
+		background-color: #fff;
+		border-radius: 20px;
+		box-sizing: border-box;
+		margin-top: 5em;
+		padding: 5% 8%;
+		@include media(sp){
+			border-radius: 10px;
+			margin-top: 3em;
+			padding: 5%;
+		}
+		.head {
+			color: $vi-main-color;
+			font-size: (38/16)+em;
+			font-weight: 500;
+			text-align: center;
+			@include media(tb){
+				font-size: (28/16)+em;
+			}
+			@include media(sp){
+				font-size: (20/16)+em;
+			}
+		}
+		dl {
+			margin-bottom: 3em;
+			&:nth-child(2) {
+				margin-top: 2em;
+				margin-bottom: 5em;
+			}
+			@include media(sp){
+				margin-bottom: 1.5em;
+				&:nth-child(2) {
+					margin-top: 1em;
+					margin-bottom: 2.5em;
+				}
+			}
+			dt {
+				border-bottom: 1px solid $vi-main-color;
+				color: $vi-main-color;
+				font-size: (21/16)+em;
+				font-weight: 500;
+				margin: 1em 0 .5em;
+				padding: 5px 0;
+				@include media(sp){
+					font-size: (18/16)+em;
+				}
+			}
+			ul {
+				li {
+					font-size: (18/16)+em;
+					margin-bottom: .5em;
+					@include media(sp){
+						font-size: (15/16)+em;
+					}
+				}
+			}
+			p {
+				font-size: (21/16)+em;
+				margin-bottom: .5em;
+				@include media(sp){
+					font-size: (18/16)+em;
+				}
+			}
+		}
+	}
+}

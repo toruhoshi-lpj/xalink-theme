@@ -1,0 +1,192 @@
+@charset "utf-8";
+/*note: INDEXの表示は、コメントの「 index: 」でハイライト表示してください。*/
+
+%button-style {
+	display: inline-block;
+	background-color: #fff;
+	border-radius: 50px;
+	border: 2px solid $vi-main-color;
+	background: $vi-main-color;
+	color: #fff;
+	text-decoration: none;
+	font-size: (15/16)+em;
+	font-weight: bold;
+	line-height: 1.2;
+	text-align: center;
+	min-width: 200px;
+	transition-duration: .1s;
+	padding: 1em;
+	@include media(sp) {
+		min-width: 180px;
+		font-size: (13/14)+em;
+	}
+	&:hover {
+		opacity: .7;
+	}
+	// &:active,
+	// &:visited {
+	// 	color: #fff;
+	// }
+	// &:hover {
+	// 	background: #fff;
+	// 	color: $vi-main-color;
+	// }
+}
+
+%button-style2 {
+	display: inline-block;
+	background-color: #fff;
+	border-radius: 0;
+	color: #000 !important;
+	text-decoration: none;
+	font-size: (15/16)+em;
+	font-weight: bold;
+	line-height: 1.2;
+	text-align: center;
+	min-width: 230px;
+	transition-duration: 0.3s;
+	padding: 1em;
+	@include media(sp) {
+		font-size: (13/14)+em;
+	}
+	// &:hover {
+	// 	color: #fff !important;
+	// 	background: $vi-color-01;
+	// 	border-color: #fff;
+	// }
+	// &:visited {
+	// 	color: $vi-color-01;
+	// 	&:hover {
+	// 		color: #fff;
+	// 	}
+	// }
+}
+
+%button-large {
+	padding: .5em 1em;
+	font-size: 1.25em;
+	line-height: 1.5;
+	border-radius: .3em;
+}
+
+%button-arrow {
+	position: relative;
+	&:before,
+	&:after {
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 5px 0 5px 8px;
+		border-color: transparent transparent transparent #fff;
+	}
+	// &:hover {
+	// 	&:before,
+	// 	&:after {
+	// 		@include media(sp) {
+	// 		}
+	// 	}
+	// }
+}
+
+.button-arrow-left {
+	@extend %button-arrow;
+	&:before {
+		content: '';
+		transform: rotate(180deg);
+		left: 20px;
+		transition-duration: 0.3s;
+	}
+	// &:hover {
+	// 	&:before {
+	// 		left: 15px;
+	// 	}
+	// }
+}
+
+.button-arrow-right {
+	@extend %button-arrow;
+	&:after {
+		content: '';
+		right: 45px;
+		transition-duration: 0.3s;
+	}
+	// &:hover {
+	// 	&:after {
+	// 		right: 15px;
+	// 	}
+	// }
+}
+
+.button {
+	@extend %button-style;
+}
+
+.button-works {
+	@extend %button-style2;
+}
+
+.button-large {
+	padding: .5em 1.75em;
+	font-size: 1.25em;
+	line-height: 1.5;
+	border-radius: .3em;
+}
+
+.button-small {
+	padding: .25em 1.25em;
+	font-size: .875em;
+	line-height: 1.5;
+	border-radius: .2em;
+}
+
+.button-block {
+	display: block;
+	width: 100%;
+	margin: auto;
+	text-align: center;
+}
+
+.button-contact {
+	background-color: $vi-color-01;
+	color: #fff;
+	text-align: center;
+	max-width: 200px;
+	&:hover {
+		color: #fff;
+	}
+	&:visited {
+		color: #fff;
+	}
+}
+
+.button-download {
+	position: relative;
+	&:after {
+		content: '';
+		position: absolute;
+		width: 20px;
+		height: 27px;
+		top: 0;
+		bottom: 0;
+		right: 20px;
+		margin: auto;
+		background: url(../images/download.svg) no-repeat left center/cover;
+		@include media(sp){
+			width: 15px;
+			height: 22px;
+			right: 15px;
+		}
+	}
+}
+
+.back-button-wrapper {
+	text-align: center;
+	.back-button {
+		@extend %button-style;
+	}
+}

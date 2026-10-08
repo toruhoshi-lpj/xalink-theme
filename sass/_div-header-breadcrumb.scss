@@ -1,0 +1,30 @@
+@charset "utf-8";
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+
+/*index: パンくずリスト*/
+
+#header-breadcrumb {
+	&-wrapper {
+
+	}
+	max-width: 1024px;
+	width: 90%;
+	margin: 1em auto;
+	font-size: 1em;
+	@include media(sp) {
+		margin: 1em auto;
+	}
+	li {
+		display: inline-block;
+		+ li {
+			&:before {
+				content: '>';
+				padding: 0 0.5em;
+			}
+		}
+		a {
+			&:hover {
+			}
+		}
+	}
+}

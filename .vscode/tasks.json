@@ -1,0 +1,21 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Compile Sass (style + editor)",
+      "type": "shell",
+      "command": "npx --yes sass sass/style.scss css/style.css --style=expanded && npx --yes sass sass/style.scss css/style.min.css --style=compressed && npx --yes sass sass/editor-style.scss css/editor-style.css --style=expanded && npx --yes sass sass/editor-style.scss css/editor-style.min.css --style=compressed",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      }
+    }
+  ]
+}

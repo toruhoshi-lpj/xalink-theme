@@ -1,0 +1,82 @@
+@charset "utf-8";
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+
+/*index: ヒーローイメージ*/
+
+#hero {
+	position: relative;
+	&-wrapper {
+		// margin-top: 100px;
+		// @media screen and (max-width: 1150px){
+		// 	margin-top: 80px;
+		// }
+		// @include media(sp){
+		// 	margin-top: 60px;
+		// }
+	}
+	.hero-slider {
+		.slick-slide > div {
+			line-height: 0;
+		}
+		.slide-img {
+			display: block !important;
+			vertical-align: top;
+			background-size: cover;
+			background-position: center;
+			height: 580px !important;
+			@include media(tb){
+				height: 460px !important;
+			}
+			@include media(sp){
+				height: 300px !important;
+				background-position: 32% center;
+			}
+		}
+	}
+	.hero-copy-box {
+		position: absolute;
+		top: 0;
+		right: 8%;
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 74%;
+		padding: 36px 72px;
+		background: linear-gradient(
+			to bottom,
+			#00548f 0%,
+			#00428b 15%,
+			#003888 40%,
+			#003888 75%,
+			#00519c 100%
+		);
+		color: #fff;
+		transform: skewX(-20deg);
+		h1 {
+			margin: 0;
+			transform: skewX(20deg);
+			font-size: 36px;
+			font-weight: 700;
+			line-height: 1.6;
+			letter-spacing: 0.08em;
+		}
+		@include media(tb) {
+			right: 5%;
+			height: 70%;
+			padding: 24px 48px;
+			h1 {
+				font-size: 28px;
+			}
+		}
+		@include media(sp) {
+			right: 4%;
+			padding: 16px 28px;
+			height: 100%;
+			h1 {
+				font-size: 18px;
+				letter-spacing: 0.04em;
+			}
+		}
+	} 
+}

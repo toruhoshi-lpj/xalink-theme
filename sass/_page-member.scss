@@ -1,0 +1,85 @@
+@charset "utf-8";
+/*note: INDEXの表示は、コメントの「 index: 」でハイライト表示してください。*/
+
+#member {
+	&-wrapper {
+		overflow: hidden;
+	}
+	img {
+		width: 100%;
+		height: auto;
+	}
+	.container {
+		overflow: hidden;
+		padding: 9.6rem 0;
+		@include media(sp){
+			padding: 4.8rem 0;
+		}
+	}
+	.width-scroll {
+		@include media(tb){
+			overflow: scroll;
+		}
+	}
+	table {
+		margin-bottom: 0;
+		@include media(tb){
+			width: 1024px;
+		}
+		@include media(sp){
+			width: 760px;
+		}
+		th {
+			background-color: $vi-main-color;
+			border: 1px solid #fff;
+			color: #fff;
+			font-size: (20/16)+em;
+			text-align: center;
+			@include media(sp){
+				font-size: (16/16)+em;
+			}
+			&:nth-child(1){
+				width: 270px;
+			}
+			&:nth-child(2){
+				width: 140px;
+			}
+			&:nth-child(3){
+				width: 440px;
+			}
+			&:nth-child(4){
+				width: 174px;
+			}
+		}
+		td {
+			border: 1px solid #fff;
+			font-size: (9/10)+em;
+			text-align: center;
+			&:nth-child(3){
+				text-align: left;
+				padding: 10px 1em;
+			}
+			&:nth-child(4){
+				font-size: (14/16)+em;
+			}
+			@include media(sp){
+				font-size: (14/16)+em;
+				&:nth-child(4){
+					font-size: (16/16)+em;
+				}
+			}
+			a {
+				color: #008d3a;
+				text-decoration: none;
+			}
+		}
+		tbody {
+			tr {
+				background-color: rgba(197, 198, 198, 0.2);
+				&:nth-child(even){
+					background-color: rgba(242, 244, 244, 0.2);
+				}
+			}
+		}
+	}
+}
