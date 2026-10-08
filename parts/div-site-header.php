@@ -18,8 +18,8 @@ div_wrapper( $id_wrapper, 'start' );
 		<!--note global-navigation　グローバルナビゲーション-->
 		<nav role="navigation" id="global-nav" class="nav-pc">
 			<ul class="clearfix">
-				<li><a href="#home-service">事業案内</a></li>
-				<li><a href="#home-profile">会社案内</a></li>
+				<li><a href="<?php echo esc_url( home_url( '/#home-service' ) ); ?>">事業案内</a></li>
+				<li><a href="<?php echo esc_url( home_url( '/#home-profile' ) ); ?>">会社案内</a></li>
 				<li><a href="https://www.xebiocp.co.jp/recruit">採用情報</a></li>
 			</ul>
 		</nav>
@@ -31,8 +31,8 @@ div_wrapper( $id_wrapper, 'start' );
 	</div>
 	<nav role="navigation" id="global-nav-sp" class="nav-sp" aria-hidden="true">
 		<ul>
-			<li><a href="#home-service">事業案内</a></li>
-			<li><a href="#home-profile">会社案内</a></li>
+			<li><a href="<?php echo esc_url( home_url( '/#home-service' ) ); ?>">事業案内</a></li>
+			<li><a href="<?php echo esc_url( home_url( '/#home-profile' ) ); ?>">会社案内</a></li>
 			<li><a href="https://www.xebiocp.co.jp/recruit">採用情報</a></li>
 		</ul>
 	</nav>
