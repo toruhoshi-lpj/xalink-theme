@@ -18,5 +18,5 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SFTP_KEY }}
           REMOTE_HOST: ${{ secrets.SFTP_SERVER }}
           REMOTE_USER: ${{ secrets.SFTP_USERNAME }}
-          REMOTE_PORT: "10397"
+          REMOTE_PORT: "10399"
           TARGET: "/html/wp-content/themes/xalink-theme/"
