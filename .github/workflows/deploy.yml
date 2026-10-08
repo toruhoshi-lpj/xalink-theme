@@ -3,7 +3,7 @@ name: Deploy Theme to CPI Test Server
 on:
   push:
     branches:
-      - main # または master など、GitHubのメインブランチ名に合わせてください
+      - main
 
 jobs:
   deploy:
@@ -17,8 +17,8 @@ jobs:
         with:
           server: ${{ secrets.SFTP_SERVER }}
           username: ${{ secrets.SFTP_USERNAME }}
-          ssh-key: ${{ secrets.SFTP_KEY }}
+          sftp-ssh-key: ${{ secrets.SFTP_KEY }}
           port: ${{ secrets.SFTP_PORT }}
           protocol: sftp
-          # CPIの転送先ディレクトリ（※サブフォルダ等にインストールした場合は適宜変更してください）
+          # CPIの転送先ディレクトリ（実在するテーマフォルダ名に変更してください）
           server-dir: /html/wp-content/themes/xalink-theme/
