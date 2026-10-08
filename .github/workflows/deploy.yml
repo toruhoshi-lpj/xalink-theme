@@ -1,4 +1,4 @@
-name: Deploy Theme to CPI Test Server
+name: Check CPI Server Directories
 
 on:
   push:
@@ -6,21 +6,18 @@ on:
       - main
 
 jobs:
-  deploy:
+  check-dir:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
       - name: Install lftp
         run: sudo apt-get update && sudo apt-get install -y lftp
 
-      - name: SFTP Upload via lftp
+      - name: List Server Directories
         run: |
           lftp -f "
           set sftp:auto-confirm yes
           open -u ${{ secrets.SFTP_USERNAME }},${{ secrets.SFTP_PASSWORD }} -p 10397 sftp://${{ secrets.SFTP_SERVER }}
-          mkdir -p wp-content/themes/xalink-theme
-          mirror --reverse --delete --verbose ./ wp-content/themes/xalink-theme/
+          pwd
+          ls -la
           quit
           "
