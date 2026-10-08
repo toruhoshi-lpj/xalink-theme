@@ -18,6 +18,6 @@ jobs:
           server: ${{ secrets.SFTP_SERVER }}
           username: ${{ secrets.SFTP_USERNAME }}
           ssh_private_key: ${{ secrets.SFTP_KEY }}
-          port: ${{ secrets.SFTP_PORT }}
-          # 転送先ディレクトリ（末尾の / を忘れずに）
+          port: 22
+          # 転送先ディレクトリ
           remote_path: /html/wp-content/themes/xalink-theme/
