@@ -84,8 +84,7 @@ body {
 }
 
 body, html {
-  -moz-text-size-adjust: 100%;
-       text-size-adjust: 100%;
+  text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
@@ -420,6 +419,7 @@ dt {
 }
 
 .flex-box {
+  display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
   display: -o-flex;
@@ -471,6 +471,7 @@ li {
 /*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
 /*index: サイドバーありスタイル */
 #main-wrapper {
+  display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
   display: -o-flex;
@@ -999,6 +1000,7 @@ table td, .wysiwyg table td,
 }
 
 .disc-list {
+  display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
   display: -o-flex;
@@ -1169,6 +1171,7 @@ header .flex-box {
 }
 header #global-nav {
   align-items: center;
+  display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
   display: -o-flex;
@@ -1184,6 +1187,7 @@ header #global-nav .clearfix {
   width: 100%;
   align-items: center;
   list-style: none;
+  display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
   display: -o-flex;
@@ -1878,6 +1882,23 @@ header #global-nav .clearfix:after {
 #hero {
   position: relative;
 }
+#hero .hero-slider:not(.slick-initialized) {
+  height: 580px;
+  overflow: hidden;
+}
+#hero .hero-slider:not(.slick-initialized) .slide-img:not(:first-child) {
+  display: none !important;
+}
+@media only screen and (max-width: 1020px) {
+  #hero .hero-slider:not(.slick-initialized) {
+    height: 460px;
+  }
+}
+@media only screen and (max-width: 640px) {
+  #hero .hero-slider:not(.slick-initialized) {
+    height: 300px;
+  }
+}
 #hero .hero-slider .slick-slide > div {
   line-height: 0;
 }
@@ -2012,12 +2033,10 @@ header #global-nav .clearfix:after {
   display: block;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 #home-about .about-photo:last-child img {
-  -o-object-position: 70% center;
-     object-position: 70% center;
+  object-position: 70% center;
 }
 @media only screen and (max-width: 1020px) {
   #home-about {
@@ -2109,12 +2128,10 @@ header #global-nav .clearfix:after {
   display: block;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 #home-service .service-photo-01 img {
-  -o-object-position: center 20%;
-     object-position: center 20%;
+  object-position: center 20%;
 }
 #home-service .service-body {
   flex: 1;
@@ -2327,8 +2344,7 @@ header #global-nav .clearfix:after {
 #home-profile .profile-row {
   display: grid;
   grid-template-columns: 280px 1fr;
-  -moz-column-gap: 40px;
-       column-gap: 40px;
+  column-gap: 40px;
   align-items: center;
   padding: 28px 8px;
   border-bottom: 1px solid #d5d5d5;
@@ -2351,8 +2367,7 @@ header #global-nav .clearfix:after {
   }
   #home-profile .profile-row {
     grid-template-columns: 220px 1fr;
-    -moz-column-gap: 24px;
-         column-gap: 24px;
+    column-gap: 24px;
   }
 }
 @media only screen and (max-width: 640px) {
@@ -2492,6 +2507,8 @@ header #global-nav .clearfix:after {
   cursor: pointer;
   background: transparent;
   color: transparent;
+  -webkit-transform: translate(0, 11%);
+  -ms-transform: translate(0, 11%);
   transform: translate(0, 11%);
   padding: 0;
   border: none;
@@ -2503,12 +2520,16 @@ header #global-nav .clearfix:after {
 @media only screen and (max-width: 1020px) {
   .slick-prev,
   .slick-next {
+    -webkit-transform: translate(0, 14%);
+    -ms-transform: translate(0, 14%);
     transform: translate(0, 14%);
   }
 }
 @media only screen and (max-width: 640px) {
   .slick-prev,
   .slick-next {
+    -webkit-transform: translate(0, 20%);
+    -ms-transform: translate(0, 20%);
     transform: translate(0, 20%);
   }
 }
@@ -2645,8 +2666,11 @@ header #global-nav .clearfix:after {
   box-sizing: border-box;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
+  -khtml-user-select: none;
   -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
+  -ms-touch-action: pan-y;
   touch-action: pan-y;
   -webkit-tap-highlight-color: transparent;
 }
@@ -2668,6 +2692,10 @@ header #global-nav .clearfix:after {
 
 .slick-slider .slick-track,
 .slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
 
@@ -3501,8 +3529,7 @@ header #global-nav .clearfix:after {
 .form input[type=submit] {
   -webkit-box-sizing: content-box;
   -webkit-appearance: button;
-  -moz-appearance: button;
-       appearance: button;
+  appearance: button;
   box-sizing: border-box;
 }
 .form input[type=submit]::-webkit-search-decoration {
@@ -4283,3 +4310,5 @@ header #global-nav .clearfix:after {
   color: #008d3a;
   word-break: break-all;
 }
+
+/*# sourceMappingURL=style.css.map */

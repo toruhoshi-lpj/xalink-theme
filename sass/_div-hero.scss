@@ -15,6 +15,19 @@
 		// }
 	}
 	.hero-slider {
+		&:not(.slick-initialized) {
+			height: 580px;
+			overflow: hidden;
+			.slide-img:not(:first-child) {
+				display: none !important;
+			}
+			@include media(tb) {
+				height: 460px;
+			}
+			@include media(sp) {
+				height: 300px;
+			}
+		}
 		.slick-slide > div {
 			line-height: 0;
 		}
