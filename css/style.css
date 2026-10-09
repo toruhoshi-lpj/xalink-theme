@@ -3951,6 +3951,14 @@ header #global-nav .clearfix:after {
     min-width: 640px;
   }
 }
+#compliance a.external-link {
+  text-decoration: underline !important;
+  color: #004097;
+  font-weight: 600;
+}
+#compliance a.external-link:hover {
+  text-decoration: none;
+}
 
 #compliance-1 {
   padding-top: 40px;

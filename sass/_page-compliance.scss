@@ -353,6 +353,14 @@
 			}
 		}
 	}
+	a.external-link {
+		text-decoration: underline !important;
+		color: #004097;
+		font-weight: 600;
+		&:hover {
+			text-decoration: none;
+		}
+	}
 }
 
 #compliance-1 {
