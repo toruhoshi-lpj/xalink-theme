@@ -20,7 +20,7 @@ div_wrapper( $id_wrapper, 'start' );
 			<ul class="clearfix">
 				<li><a href="<?php echo esc_url( home_url( '/#home-service' ) ); ?>">事業案内</a></li>
 				<li><a href="<?php echo esc_url( home_url( '/#home-profile' ) ); ?>">会社案内</a></li>
-				<li><a href="https://www.xebiocp.co.jp/recruit">採用情報</a></li>
+				<!-- <li><a href="https://www.xebiocp.co.jp/recruit">採用情報</a></li> -->
 			</ul>
 		</nav>
 		<button type="button" id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="global-nav-sp" aria-label="メニューを開く">
@@ -33,7 +33,7 @@ div_wrapper( $id_wrapper, 'start' );
 		<ul>
 			<li><a href="<?php echo esc_url( home_url( '/#home-service' ) ); ?>">事業案内</a></li>
 			<li><a href="<?php echo esc_url( home_url( '/#home-profile' ) ); ?>">会社案内</a></li>
-			<li><a href="https://www.xebiocp.co.jp/recruit">採用情報</a></li>
+			<!-- <li><a href="https://www.xebiocp.co.jp/recruit">採用情報</a></li> -->
 		</ul>
 	</nav>
 </header>

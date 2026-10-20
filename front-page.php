@@ -103,7 +103,7 @@ div_wrapper( 'contents', 'start' );
 			</div>
 			<div class="profile-row">
 				<dt>会社設立</dt>
-				<dd>2026年5月1日</dd>
+				<dd>2004年7月1日</dd>
 			</div>
 			<div class="profile-row">
 				<dt>代表取締役社長</dt>

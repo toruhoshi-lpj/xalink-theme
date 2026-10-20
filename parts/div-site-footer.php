@@ -38,7 +38,7 @@ div_wrapper( $id_wrapper, 'start' );
 			<div class="nav-column">
 				<ul>
 				<li><a href="#home-profile" class="nav-title">会社案内</a></li>
-				<li><a href="https://www.xebiocp.co.jp/recruit" class="nav-title">採用情報</a></li>
+				<!-- <li><a href="https://www.xebiocp.co.jp/recruit" class="nav-title">採用情報</a></li> -->
 				</ul>
 			</div>
 			<!-- 列3: 規約・情報公開 -->
