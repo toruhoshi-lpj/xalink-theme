@@ -142,3 +142,10 @@ function xalink_favicon() {
 	exit;
 }
 add_action( 'do_faviconico', 'xalink_favicon' );
+
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+if ( ! function_exists( 'get_field' ) ) {
+    function get_field( $selector, $post_id = false, $format_value = true ) {
+        return null;
+    }
+}
